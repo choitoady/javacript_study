@@ -10,14 +10,16 @@
   }
 
   .carousel-wrapper> .carousel {
-    width: 500px;
-    height: 300px;
     display: flex;
-    flex-direction: row;
     transform: translate3d(0, 0, 0);
     transition: transform 0.2s;
   }
     
+
+  .hamster {
+    width: 500px;
+    height: 300px;
+  }
   .carousel-wrapper > .carousel > img {
    
     width: 500px;
