@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  .carousel-wrapper {
+    width: 500px;
+    height: 300px;
+   overflow: hidden;
+    
+  }
+
+  .carousel-wrapper> .carousel {
+    width: 500px;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.2s;
+  }
+    
+  .carousel-wrapper > .carousel > img {
+   
+    width: 500px;
+    height: 300px;
+  }
+
+  
+  

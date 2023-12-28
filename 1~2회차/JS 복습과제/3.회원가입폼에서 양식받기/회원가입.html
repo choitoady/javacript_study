@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SIGNUP</title>
+        <link rel="stylesheet" href="회원가입.css">
+    </head>
+    <body class="box">
+        <div>
+            <h1>회 원 가 입</h1>
+        </div>
+        <hr>
+        <hr>
+        <div>
+            <b class="name">UserID</b><br>
+            <input class="text" type="text" id="userID" name="UserID" placeholder="아이디"><br><br>
+        </div>
+        <div>
+            <b class="name">PW</b><br>
+            <input class="text" type="password" id="password" name="PW" placeholder="패스워드"><br><br>
+        </div>
+        <div>
+            <b class="name">PW 확인</b><br>
+            <input class="text" type="password" id="confirmPassword" name="PW" placeholder="패스워드확인"><br><br>
+        </div>
+        <div>
+            <b class="name">email</b><br>
+            <input class="text" type="email" id="email" name="email" placeholder="E-mail"><br><br><br>
+        </div>
+        <div>
+            <input type="checkbox"> email 수신 동의 
+        </div>
+        <div>
+            <button class="sign_up" type="button" onclick="getUserInput()">가입</button>
+        </div>
+    
+        <script>
+            function getUserInput() {
+                // 각 입력 필드에 대한 값을 가져오기
+                var userID = document.getElementById('userID').value;
+                var password = document.getElementById('password').value;
+                var confirmPassword = document.getElementById('confirmPassword').value;
+                var email = document.getElementById('email').value;
+    
+                // 콘솔에 출력
+                console.log('UserID:', userID);
+                console.log('PW:', password);
+                console.log('PW 확인:', confirmPassword);
+                console.log('email:', email);
+            }
+        </script>
+    </body>
+    </html>
