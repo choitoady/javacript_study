@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mystery Number 맞추기</title>
+    <style>
+        #number_game_position {
+            margin: 200px auto;
+            text-align: center;
+            width: 600px;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="number_game_position">
+        <h2>Mystery Number 맞추기</h2>
+        <p class="text_font">1부터 100 사이의 숫자를 입력하세요!</p>
+        <form>
+            <input type="text" id="user" size="30" placeholder="숫자를 입력하세요.">
+            <button type="button" onclick="guess()">확인</button>
+            <p class="text_font"><input type="button" id="resetbtn" value="다시!" onclick="gameReset()"></p>
+        </form>
+        <div id="hint">
+            <p></p>
+        </div>
+
+        <script>
+            var ran;
+
+            function guess() {
+                ran = Math.floor(Math.random() * 100 + 1);
+                var num1 = document.getElementById("user").value;
+                var hintElement = document.getElementById("hint").querySelector("p");
+
+                if (isNaN(num1) || num1 === "") {
+                    alert('숫자를 입력하세요');
+                } else {
+                    num1 = parseInt(num1);
+                if (num1 === ran) {
+                        alert('정답입니다!');
+                    } else if (ran > num1) {
+                        hintElement.textContent = num1 + '보다 큽니다!';
+                    } else {
+                        hintElement.textContent = num1 + '보다 작습니다!';
+                    }
+                }
+            }
+
+            function gameReset() {
+                ran = Math.floor(Math.random() * 100 + 1);
+                document.getElementById("hint").querySelector("p").textContent = '';
+                document.getElementById("user").value = '';
+            }
+
+            window.onload = function () {
+                document.getElementById("resetbtn").addEventListener('click', function () {
+                    gameReset();
+                });
+                gameReset();
+            };
+        </script>
+    </div>
+</body>
+</html>

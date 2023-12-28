@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+document.write("1번째 트리"+ "<br>");       
+let num = 5;
+
+// 별이 하나씩 많아지다가 5개가 되면 끝나는 부분
+for (let i = 1; i <= num; i += 1) {
+    let star = '*'.repeat(i);
+    document.write(star + "<br>");
+}  
+
+document.write("2번째 트리"+ "<br>");
+let height = 5;
+
+// 별이 하나씩 많아지다가 5개가 되면 끝나는 부분
+for (let i = 1; i <= height; i += 1) {
+    let stars = '*'.repeat(i);
+    document.write(stars + "<br>");
+}
+
+// 다시 별이 하나씩 많아지다가 5개에서 하나씩 줄어들어 한 개가 되는 부분
+for (let i = height - 1; i >= 1; i -= 1) {
+    let stars = '*'.repeat(i);
+    document.write(stars + "<br>"); 
+
+}
+
+document.write("3번째 트리"+ "<br>");
+let third = 9
+for (let i = 1; i <= third; i += 2) {
+    let end = '*'.repeat(i);
+    document.write(end + "<br>");
+}
+ 
+// 다시 별이 하나씩 많아지다가 5개에서 하나씩 줄어들어 한 개가 되는 부분
+for (let i = third - 1; i >= 1; i -= 2) {
+    let end = '*'.repeat(i);
+    document.write(end + "<br>"); 
+
+}
+    </script>
+</body>
+</html>
