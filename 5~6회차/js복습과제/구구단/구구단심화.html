@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단</title>
+</head>
+<body>
+    <h2>구구단</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <!-- 맨 왼쪽 열 헤더를 삭제 -->
+                <!-- <th>구구단</th> -->
+                <th>2단</th>
+                <th>3단</th>
+                <th>4단</th>
+                <th>5단</th>
+                <th>6단</th>
+                <th>7단</th>
+                <th>8단</th>
+                <th>9단</th>
+            </tr>
+        </thead>
+        <tbody id="gugudanTableBody">
+        </tbody>
+    </table>
+
+    <script>
+        // 이중 for문을 사용하여 구구단 테이블을 생성합니다.
+        for (let i = 1; i <= 9; i++) {
+            // 행 추가
+            const row = document.createElement('tr');
+
+            // 2단부터 9단까지의 결과를 계산하여 열에 추가
+            for (let j = 2; j <= 9; j++) {
+                const cell = document.createElement('td');
+                cell.textContent = `${j} * ${i} = ${i * j}`;
+                row.appendChild(cell);
+            }
+
+            // 생성된 행을 테이블에 추가
+            document.getElementById('gugudanTableBody').appendChild(row);
+        }
+    </script>
+</body>
+</html>

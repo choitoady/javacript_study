@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stopwatch</title>
+  <style>
+    #stopwatch {
+      font-size: 2em;
+      margin: 20px;
+    }
+    #controls {
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="stopwatch">0:00</div>
+<div id="controls">
+  <button onclick="stopwatch.startStop()">Start/Stop</button>
+  <button onclick="stopwatch.reset()">Reset</button>
+</div>
+
+<script>
+class Stopwatch {
+  constructor() {
+    this.isRunning = false;
+    this.startTime = null;
+    this.elapsedTime = 0;
+    this.updateDisplay();
+  }
+
+  startStop() {
+    if (this.isRunning) {
+      this.stop();
+    } else {
+      this.start();
+    }
+  }
+
+  start() {
+    if (!this.isRunning) {
+      this.isRunning = true;
+      this.startTime = new Date() - this.elapsedTime;
+      this.interval = setInterval(() => {
+        this.elapsedTime = new Date() - this.startTime;
+        this.updateDisplay();
+      }, 100);
+    }
+  }
+
+  stop() {
+    if (this.isRunning) {
+      this.isRunning = false;
+      clearInterval(this.interval);
+    }
+  }
+
+  reset() {
+    this.isRunning = false;
+    this.startTime = null;
+    this.elapsedTime = 0;
+    this.updateDisplay();
+  }
+
+  updateDisplay() {
+    const minutes = Math.floor(this.elapsedTime / 60000);
+    const seconds = Math.floor((this.elapsedTime % 60000) / 1000);
+    const milliseconds = Math.floor((this.elapsedTime % 1000) / 100);
+    document.getElementById("stopwatch").innerText = `${minutes}:${seconds}.${milliseconds}`;
+  }
+}
+
+const stopwatch = new Stopwatch();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보 게임</title>
+</head>
+<body>
+    <h1>가위바위보 게임</h1>
+    <p>가위, 바위, 보 중 하나를 입력하세요</p>
+    <input type="text" id="text">
+    <button onclick="showResult()">결과 확인</button>
+
+    <!-- 결과를 표시할 영역 추가 -->
+    <p id="result"></p>
+
+    <script>
+        // 가위, 바위, 보 중에서 랜덤으로 선택하는 함수
+        function getRandomChoice() {
+            const choices = ['가위', '바위', '보'];
+            const randomIndex = Math.floor(Math.random() * choices.length);
+            return choices[randomIndex];
+        }
+
+        // 버튼 클릭 시 실행되는 함수
+        function showResult() {
+            // 입력값 가져오기
+            const userChoice = document.getElementById("text").value;
+
+            // 컴퓨터가 랜덤으로 선택한 값
+            const computerChoice = getRandomChoice();
+
+            // 승패 판단
+            let resultMessage;
+            if (userChoice === computerChoice) {
+                resultMessage = "비겼다!";
+            } else if (
+                (userChoice === '가위' && computerChoice === '보') ||
+                (userChoice === '바위' && computerChoice === '가위') ||
+                (userChoice === '보' && computerChoice === '바위')
+            ) {
+                resultMessage = "이겼다!";
+            } else {
+                resultMessage = "졌다!";
+            }
+
+            // 결과를 HTML에 추가
+            document.getElementById("result").innerHTML = `당신의 선택: ${userChoice}, 컴퓨터의 선택: ${computerChoice}, 결과: ${resultMessage}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="iceCreamList()">아이스크림 종류 추가</button>
+    <button onclick="iceCreamPrint()">아이스크림 이름 출력</button>
+    <button onclick="showIceCreamList()">입력한 아이스크림 목록 출력</button>
+    <h1>입력한 아이스크림 목록:</h1>
+    <div id="iceCreamListContainer"></div>
+
+    <script>
+        const iceCreams = [];
+
+        function iceCreamList() {
+            const newIceCream = prompt("추가하고 싶은 아이스크림을 쓰세요");
+            iceCreams.push(newIceCream);
+        }
+
+        function iceCreamPrint() {
+            const iceCreamName = iceCreams[iceCreams.length - 1]; // 배열의 마지막 항목 사용
+            alert(iceCreamName);
+        }
+
+        function showIceCreamList() {
+            const iceCreamListContainer = document.getElementById('iceCreamListContainer');
+            iceCreamListContainer.innerHTML = '';
+
+            for (let i = 0; i < iceCreams.length; i++) {
+                const iceCreamItem = document.createElement('p');
+                iceCreamItem.textContent = iceCreams[i];
+                iceCreamListContainer.appendChild(iceCreamItem);
+            }
+        }
+    </script>
+</body>
+</html>
