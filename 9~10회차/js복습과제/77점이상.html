@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>멀리뛰기 결과</title>
+    <style>
+     .table {
+        border-style: solid;
+            width: 50%;
+     }
+     th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>떡잎 유치원 멀리뛰기 결과</h1>
+            <table class="table">
+                <tr>
+                  <td>이름</td>
+                  <td>점수</td>
+                </tr>
+                <tr>
+                    <td>짱구</td>
+                    <td>45</td>
+                  </tr>
+                  <tr>
+                    <td>맹구</td>
+                    <td>75</td>
+                  </tr>
+                  <tr>
+                    <td>철수</td>
+                    <td>95</td>
+                  </tr>
+                  <tr>
+                    <td>훈이</td>
+                    <td>50</td>
+                  </tr>
+                  <tr>
+                    <td>유리</td>
+                    <td>68</td>
+                  </tr>
+                  <tr>
+                    <td>수지</td>
+                    <td>86</td>
+                  </tr>
+                  </table>      
+          <div>
+            <h2>75점 넘는 사람 : </h2>
+            <ul id="highScorers"></ul>
+          </div>
+
+
+    <script>
+        // JavaScript 코드 추가
+        document.addEventListener("DOMContentLoaded", function () {
+            // 테이블에서 75점 이상인 학생 이름을 추출하여 화면에 표시
+            var table = document.querySelector('.table');
+            var highScorersList = document.getElementById('highScorers');
+
+            for (var i = 1; i < table.rows.length; i++) {
+                var score = parseInt(table.rows[i].cells[1].textContent);
+
+                if (score >= 75) {
+                    var name = table.rows[i].cells[0].textContent;
+                    var listItem = document.createElement('li');
+                    listItem.textContent = name;
+                    highScorersList.appendChild(listItem);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
